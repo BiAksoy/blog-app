@@ -9,16 +9,17 @@ class BlogModel extends Blog {
     required super.imageUrl,
     required super.topics,
     required super.updatedAt,
+    super.posterName,
   });
 
   factory BlogModel.fromJson(Map<String, dynamic> json) {
     return BlogModel(
-      id: json['id'] ?? '',
-      posterId: json['poster_id'] ?? '',
-      title: json['title'] ?? '',
-      content: json['content'] ?? '',
-      imageUrl: json['image_url'] ?? '',
-      topics: List<String>.from(json['topics'] ?? []),
+      id: json['id'],
+      posterId: json['poster_id'],
+      title: json['title'],
+      content: json['content'],
+      imageUrl: json['image_url'],
+      topics: List<String>.from(json['topics']),
       updatedAt: json['updated_at'] != null
           ? DateTime.parse(json['updated_at'])
           : DateTime.now(),
@@ -45,15 +46,17 @@ class BlogModel extends Blog {
     String? imageUrl,
     List<String>? topics,
     DateTime? updatedAt,
+    String? posterName,
   }) {
     return BlogModel(
-      id: id ?? super.id,
-      posterId: posterId ?? super.posterId,
-      title: title ?? super.title,
-      content: content ?? super.content,
-      imageUrl: imageUrl ?? super.imageUrl,
-      topics: topics ?? super.topics,
-      updatedAt: updatedAt ?? super.updatedAt,
+      id: id ?? this.id,
+      posterId: posterId ?? this.posterId,
+      title: title ?? this.title,
+      content: content ?? this.content,
+      imageUrl: imageUrl ?? this.imageUrl,
+      topics: topics ?? this.topics,
+      updatedAt: updatedAt ?? this.updatedAt,
+      posterName: posterName ?? this.posterName,
     );
   }
 }
