@@ -52,7 +52,11 @@ class _BlogPageState extends State<BlogPage> {
               itemCount: state.blogs.length,
               itemBuilder: (context, index) {
                 final blog = state.blogs[index];
-                return BlogCard(blog: blog, color: AppColors.gradient1);
+                return BlogCard(
+                  blog: blog,
+                  color:
+                      index.isEven ? AppColors.gradient1 : AppColors.gradient2,
+                );
               },
             );
           } else {
